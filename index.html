@@ -11,38 +11,66 @@
       --brand-secondary: #0056b3; /* Deep PS Blue */
       --brand-accent: #facc15; /* Lashen Gold/Yellow */
       --bg-dark: #030712;
-      --panel-bg: #0b1528;
-      --text-gray: #9ca3af;
+      --panel-bg: rgba(11, 21, 40, 0.78); /* خلفية شفافة لإظهار الصورة */
+      --text-gray: #cbd5e1;
       --white: #ffffff;
     }
 
-    body { margin: 0; padding: 0; font-family: 'Cairo', sans-serif; background-color: var(--bg-dark); background-image: radial-gradient(circle at top, #0f2952 0%, var(--bg-dark) 80%); color: var(--white); display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+    body { 
+      margin: 0; 
+      padding: 0; 
+      font-family: 'Cairo', sans-serif; 
+      background-color: var(--bg-dark); 
+      /* إضافة صورة الاستور في الخلفية مع طبقة تظليل خفيفة لوضوح الكلام */
+      background-image: linear-gradient(rgba(3, 7, 18, 0.55), rgba(3, 7, 18, 0.80)), url('bg.jpg'); 
+      background-size: cover; 
+      background-position: center; 
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      color: var(--white); 
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      min-height: 100vh; 
+    }
     
-    .lashen-wrapper { width: 92%; max-width: 480px; background: var(--panel-bg); border-radius: 12px; padding: 30px 20px; box-shadow: 0 10px 40px rgba(0, 168, 255, 0.25); border: 1px solid rgba(0, 168, 255, 0.4); position: relative; overflow: hidden; }
+    .lashen-wrapper { 
+      width: 92%; 
+      max-width: 480px; 
+      background: var(--panel-bg); 
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 12px; 
+      padding: 30px 20px; 
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 168, 255, 0.25); 
+      border: 1px solid rgba(0, 168, 255, 0.45); 
+      position: relative; 
+      overflow: hidden; 
+    }
     .lashen-wrapper::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--brand-primary), var(--brand-accent), var(--brand-primary)); }
 
     .header-section { text-align: center; margin-bottom: 20px; }
     .store-brand { font-family: 'Share Tech Mono', monospace; font-size: 36px; font-weight: 900; color: var(--white); letter-spacing: 2px; margin: 0; text-shadow: 0 0 15px rgba(0, 168, 255, 0.8); direction: ltr; line-height: 1.1; }
     .store-brand span { color: var(--brand-primary); display: block; font-size: 28px; }
     .store-owner { display: inline-block; font-family: 'Share Tech Mono', monospace; font-size: 22px; color: #000; background: var(--brand-accent); padding: 2px 16px; border-radius: 4px; margin: 10px 0 6px; font-weight: 900; letter-spacing: 2px; transform: skewX(-10deg); box-shadow: 0 0 15px rgba(250, 204, 21, 0.4); direction: ltr; }
-    .store-slogan { font-size: 14px; color: var(--brand-primary); margin: 4px 0; font-weight: 700; }
-    .store-services { font-size: 12px; color: var(--text-gray); margin: 6px 0 15px; font-weight: 700; line-height: 1.6; background: rgba(0, 0, 0, 0.35); padding: 8px 10px; border-radius: 8px; border: 1px solid rgba(250, 204, 21, 0.25); }
+    .store-slogan { font-size: 14px; color: var(--brand-primary); margin: 4px 0; font-weight: 700; text-shadow: 0 1px 3px rgba(0,0,0,0.8); }
+    .store-services { font-size: 12px; color: var(--text-gray); margin: 6px 0 15px; font-weight: 700; line-height: 1.6; background: rgba(0, 0, 0, 0.5); padding: 8px 10px; border-radius: 8px; border: 1px solid rgba(250, 204, 21, 0.3); }
 
     .badges-row { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
-    .badge { background: rgba(0, 168, 255, 0.1); color: var(--brand-primary); border: 1px solid rgba(0, 168, 255, 0.3); padding: 5px 10px; border-radius: 6px; font-size: 11px; font-weight: 700; direction: ltr; }
+    .badge { background: rgba(0, 168, 255, 0.15); color: var(--brand-primary); border: 1px solid rgba(0, 168, 255, 0.4); padding: 5px 10px; border-radius: 6px; font-size: 11px; font-weight: 700; direction: ltr; }
     .badge-success { border-color: #00ff66; color: #00ff66; background: rgba(0, 255, 102, 0.15); }
-    .badge-warning { border-color: var(--brand-accent); color: var(--brand-accent); background: rgba(250, 204, 21, 0.1); }
-    .badge-info { border-color: #38bdf8; color: #38bdf8; background: rgba(56, 189, 248, 0.1); }
+    .badge-warning { border-color: var(--brand-accent); color: var(--brand-accent); background: rgba(250, 204, 21, 0.15); }
+    .badge-info { border-color: #38bdf8; color: #38bdf8; background: rgba(56, 189, 248, 0.15); }
 
-    .control-panel { background: rgba(0, 0, 0, 0.45); padding: 15px; border-radius: 8px; border-right: 4px solid var(--brand-accent); margin-bottom: 20px; }
+    .control-panel { background: rgba(0, 0, 0, 0.55); padding: 15px; border-radius: 8px; border-right: 4px solid var(--brand-accent); margin-bottom: 20px; }
     .option-label-title { display: block; font-size: 14px; color: var(--white); margin-bottom: 8px; font-weight: bold; }
     
-    .segmented-control { display: flex; flex-wrap: wrap; background: var(--bg-dark); border-radius: 6px; overflow: hidden; border: 1px solid #1e293b; margin-bottom: 15px; direction: ltr; }
+    .segmented-control { display: flex; flex-wrap: wrap; background: rgba(3, 7, 18, 0.85); border-radius: 6px; overflow: hidden; border: 1px solid #1e293b; margin-bottom: 15px; direction: ltr; }
     .segmented-control input { display: none; }
     .segmented-control label { flex: 1 1 30%; text-align: center; padding: 8px 5px; cursor: pointer; font-family: 'Share Tech Mono', monospace; font-size: 11px; color: var(--text-gray); border-bottom: 1px solid #030712; border-right: 1px solid #030712; transition: 0.3s; }
     .segmented-control input:checked + label { background: var(--brand-primary); color: #000; font-weight: bold; }
 
-    .fw-dropdown { width: 100%; padding: 10px; background: var(--bg-dark); color: white; border: 1px solid #1e293b; border-radius: 6px; font-family: 'Share Tech Mono', monospace; font-size: 16px; margin-bottom: 15px; outline: none; direction: ltr; }
+    .fw-dropdown { width: 100%; padding: 10px; background: rgba(3, 7, 18, 0.9); color: white; border: 1px solid #1e293b; border-radius: 6px; font-family: 'Share Tech Mono', monospace; font-size: 16px; margin-bottom: 15px; outline: none; direction: ltr; }
     
     .toggle-wrapper { display: flex; align-items: center; gap: 10px; font-size: 13px; }
     .switch { position: relative; display: inline-block; width: 40px; height: 20px; }
@@ -54,14 +82,14 @@
     .cancel-auto-btn { background: #ef4444; color: white; border: none; padding: 3px 8px; border-radius: 4px; cursor: pointer; font-family: 'Cairo'; }
 
     .action-container { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
-    .launch-btn { background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary)); color: #fff; border: none; padding: 15px; font-size: 18px; font-family: 'Cairo', sans-serif; font-weight: 900; border-radius: 8px; cursor: pointer; box-shadow: 0 4px 15px rgba(0, 168, 255, 0.35); transition: 0.3s; }
+    .launch-btn { background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary)); color: #fff; border: none; padding: 15px; font-size: 18px; font-family: 'Cairo', sans-serif; font-weight: 900; border-radius: 8px; cursor: pointer; box-shadow: 0 4px 15px rgba(0, 168, 255, 0.4); transition: 0.3s; }
     .launch-btn:hover { opacity: 0.9; transform: scale(1.02); }
     .launch-btn:disabled { background: #1e293b; box-shadow: none; cursor: not-allowed; color: #64748b; transform: none;}
     
-    .btn-outline { background: transparent; color: var(--text-gray); border: 1px solid var(--text-gray); padding: 10px; font-family: 'Cairo', sans-serif; border-radius: 8px; cursor: pointer; transition: 0.3s; }
+    .btn-outline { background: rgba(0, 0, 0, 0.4); color: var(--text-gray); border: 1px solid var(--text-gray); padding: 10px; font-family: 'Cairo', sans-serif; border-radius: 8px; cursor: pointer; transition: 0.3s; }
     .btn-outline:hover { color: #000; border-color: var(--brand-accent); background: var(--brand-accent);}
 
-    .progress-card { background: rgba(0, 0, 0, 0.45); padding: 15px; border-radius: 8px; margin-bottom: 15px; border: 1px solid rgba(0, 168, 255, 0.15); }
+    .progress-card { background: rgba(0, 0, 0, 0.55); padding: 15px; border-radius: 8px; margin-bottom: 15px; border: 1px solid rgba(0, 168, 255, 0.2); }
     .progress-header { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 8px; align-items: center; }
     .progress-status-text { color: var(--text-gray); }
     .progress-percentage { font-family: 'Share Tech Mono', monospace; font-size: 16px; color: var(--brand-accent); font-weight: bold; direction: ltr;}
@@ -71,7 +99,7 @@
     .debug-drawer-toggle { background: none; border: none; color: var(--brand-primary); font-size: 12px; width: 100%; text-align: center; cursor: pointer; text-decoration: underline; font-family: 'Cairo'; margin-top: 5px;}
     .debug-console { display: none; background: #000; color: var(--brand-accent); font-family: monospace; font-size: 11px; padding: 10px; border-radius: 6px; margin-top: 10px; height: 120px; overflow-y: auto; direction: ltr; text-align: left; border-left: 2px solid var(--brand-primary);}
 
-    .store-footer { text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 15px; margin-top: 10px;}
+    .store-footer { text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 15px; margin-top: 10px;}
     .footer-name { font-weight: 900; color: var(--brand-accent); font-size: 16px; margin-bottom: 4px; letter-spacing: 1px; direction: ltr;}
     .footer-details { font-size: 13px; color: var(--text-gray); line-height: 1.7; }
     .phone { color: #000; font-weight: 900; font-family: 'Share Tech Mono', monospace; font-size: 16px; letter-spacing: 1.5px; direction: ltr; display: inline-block; margin-top: 6px; background: var(--brand-accent); padding: 4px 14px; border-radius: 20px; box-shadow: 0 0 12px rgba(250, 204, 21, 0.3);}
